@@ -5,87 +5,137 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>ECOcharge — Encontre pontos de reciclagem</title>
 
-  <!-- Leaflet CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
-    integrity="sha256-sA+g5QkQ6Q3/1s4tJ7Q1d8kWwQFQkYx1Y4g1h4v0f3s=" crossorigin=""/>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/style.css">
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"/>
+
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <header class="topbar">
-    <div class="brand">
-      <img src="assets/logo.png" alt="ECOcharge" class="logo">
-      <span class="title">ECOcharge</span>
-    </div>
-    <nav class="nav">
-      <a href="index.html">Início</a>
-      <a href="sobre.html">Sobre</a>
-      <a href="servicos.html">Serviços</a>
-      <a href="contato.html">Contato</a>
-    </nav>
-    <div class="actions">
-      <button id="loginBtn" class="btn small">Entrar / Cadastrar</button>
-    </div>
-  </header>
-
-  <main>
-    <section class="hero">
-      <h1>Encontre pontos de descarte de baterias perto de você</h1>
-      <p>Digite seu CEP e localize o ponto de reciclagem mais próximo.</p>
-
-      <div class="cep-search">
-        <input id="cepInput" type="text" placeholder="Digite o CEP (ex: 01001-000)">
-        <button id="buscarCepBtn" class="btn">Encontrar</button>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <img src="assets/logo.png" alt="ECOcharge" width="40" class="me-2">
+        ECOcharge
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a href="index.html" class="nav-link">Início</a></li>
+          <li class="nav-item"><a href="pages/sobre.html" class="nav-link">Sobre</a></li>
+          <li class="nav-item"><a href="pages/serviço.html" class="nav-link">Serviços</a></li>
+          <li class="nav-item"><a href="pages/contato.html" class="nav-link">Contato</a></li>
+        </ul>
+        <button class="btn btn-light ms-3" data-bs-toggle="modal" data-bs-target="#loginModal">Entrar / Cadastrar</button>
       </div>
+    </div>
+  </nav>
 
-      <div id="infoCard" class="info-card hidden"></div>
-    </section>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h1 class="display-5 fw-bold">Encontre pontos de descarte de baterias perto de você</h1>
+      <p class="lead">Digite seu CEP e localize o ponto de reciclagem mais próximo.</p>
 
-    <section id="mapSection">
-      <div id="map"></div>
-    </section>
+      <!-- Input de CEP -->
+      <div class="d-flex justify-content-center mt-4">
+        <input type="text" id="cepInput" class="form-control w-50 me-2" placeholder="Digite o CEP (ex: 01001-000)">
+        <button id="buscarCepBtn" class="btn btn-eco">Encontrar</button>
+      </div>
+    </div>
+  </section>
 
-    <section class="lista">
-      <h2>Pontos de Coleta (exemplo)</h2>
-      <ul id="pointsList"></ul>
-    </section>
-  </main>
+  <!-- Mapa -->
+  <section class="container my-5">
+    <h2 class="mb-3">Mapa de pontos de coleta</h2>
+    <div id="map"></div>
+  </section>
 
-  <footer class="footer">
+  <!-- Lista de pontos -->
+  <section class="container my-5">
+    <h2>Pontos de Coleta (exemplo)</h2>
+    <ul id="pointsList" class="list-group"></ul>
+  </section>
+
+  <!-- Footer -->
+  <footer>
     <small>© ECOcharge — Projeto Hackteen</small>
   </footer>
 
-  <!-- Login Modal -->
-  <div id="loginModal" class="modal hidden">
-    <div class="modal-content">
-      <button class="modal-close" id="closeModal">&times;</button>
-
-      <div class="tabs">
-        <button id="tabSignIn" class="tab active">Entrar</button>
-        <button id="tabSignUp" class="tab">Cadastrar</button>
+  <!-- Modal Resultado -->
+  <div class="modal fade" id="resultModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content p-3">
+        <div class="modal-header">
+          <h5 class="modal-title">Resultado da Busca</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <h6>📍 Localização informada</h6>
+          <p id="cepInfo"></p>
+          <hr>
+          <h6>♻️ Ponto de coleta mais próximo</h6>
+          <p id="ecoPoint"></p>
+        </div>
       </div>
-
-      <form id="signInForm" class="auth-form">
-        <input id="loginEmail" type="email" placeholder="Email" required>
-        <input id="loginPassword" type="password" placeholder="Senha" required>
-        <button class="btn" id="signInBtn">Entrar</button>
-      </form>
-
-      <form id="signUpForm" class="auth-form hidden">
-        <input id="signupName" type="text" placeholder="Nome completo" required>
-        <input id="signupEmail" type="email" placeholder="Email" required>
-        <input id="signupPassword" type="password" placeholder="Senha" required>
-        <button class="btn" id="signUpBtn">Cadastrar</button>
-      </form>
-
-      <div id="authMsg" class="auth-msg"></div>
     </div>
   </div>
 
-  <!-- Leaflet JS -->
-  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
-    integrity="sha256-o9N1j7kM7zQ3oJ1bN6Qx4x8uU5lq/0BWR8F6y+9Wb0I=" crossorigin=""></script>
+  <!-- Login Modal -->
+  <div class="modal fade" id="loginModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content p-3">
+        <div class="modal-header border-0">
+          <h5 class="modal-title">Acesse sua conta</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
 
-  <script defer src="js/script.js"></script>
+        <ul class="nav nav-tabs" id="loginTabs">
+          <li class="nav-item">
+            <button class="nav-link active" id="tabSignIn" data-bs-toggle="tab" data-bs-target="#signInForm">Entrar</button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link" id="tabSignUp" data-bs-toggle="tab" data-bs-target="#signUpForm">Cadastrar</button>
+          </li>
+        </ul>
+
+        <div class="tab-content mt-3">
+          <!-- Entrar -->
+          <div class="tab-pane fade show active" id="signInForm">
+            <form>
+              <input id="loginEmail" type="email" class="form-control mb-2" placeholder="Email" required>
+              <input id="loginPassword" type="password" class="form-control mb-2" placeholder="Senha" required>
+              <button class="btn btn-eco w-100">Entrar</button>
+            </form>
+          </div>
+          <!-- Cadastrar -->
+          <div class="tab-pane fade" id="signUpForm">
+            <form>
+              <input id="signupName" type="text" class="form-control mb-2" placeholder="Nome completo" required>
+              <input id="signupEmail" type="email" class="form-control mb-2" placeholder="Email" required>
+              <input id="signupPassword" type="password" class="form-control mb-2" placeholder="Senha" required>
+              <button class="btn btn-eco w-100">Cadastrar</button>
+            </form>
+          </div>
+        </div>
+
+        <div id="authMsg" class="text-center mt-3"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+
+  <!-- Script CEP + Ponto de Coleta -->
+  <script src="assets/js/script.js"></script>
 </body>
 </html>
