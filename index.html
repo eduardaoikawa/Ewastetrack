@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ECOcharge — Encontre pontos de reciclagem</title>
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+    integrity="sha256-sA+g5QkQ6Q3/1s4tJ7Q1d8kWwQFQkYx1Y4g1h4v0f3s=" crossorigin=""/>
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <img src="assets/logo.png" alt="ECOcharge" class="logo">
+      <span class="title">ECOcharge</span>
+    </div>
+    <nav class="nav">
+      <a href="index.html">Início</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="servicos.html">Serviços</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+    <div class="actions">
+      <button id="loginBtn" class="btn small">Entrar / Cadastrar</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Encontre pontos de descarte de baterias perto de você</h1>
+      <p>Digite seu CEP e localize o ponto de reciclagem mais próximo.</p>
+
+      <div class="cep-search">
+        <input id="cepInput" type="text" placeholder="Digite o CEP (ex: 01001-000)">
+        <button id="buscarCepBtn" class="btn">Encontrar</button>
+      </div>
+
+      <div id="infoCard" class="info-card hidden"></div>
+    </section>
+
+    <section id="mapSection">
+      <div id="map"></div>
+    </section>
+
+    <section class="lista">
+      <h2>Pontos de Coleta (exemplo)</h2>
+      <ul id="pointsList"></ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>© ECOcharge — Projeto Hackteen</small>
+  </footer>
+
+  <!-- Login Modal -->
+  <div id="loginModal" class="modal hidden">
+    <div class="modal-content">
+      <button class="modal-close" id="closeModal">&times;</button>
+
+      <div class="tabs">
+        <button id="tabSignIn" class="tab active">Entrar</button>
+        <button id="tabSignUp" class="tab">Cadastrar</button>
+      </div>
+
+      <form id="signInForm" class="auth-form">
+        <input id="loginEmail" type="email" placeholder="Email" required>
+        <input id="loginPassword" type="password" placeholder="Senha" required>
+        <button class="btn" id="signInBtn">Entrar</button>
+      </form>
+
+      <form id="signUpForm" class="auth-form hidden">
+        <input id="signupName" type="text" placeholder="Nome completo" required>
+        <input id="signupEmail" type="email" placeholder="Email" required>
+        <input id="signupPassword" type="password" placeholder="Senha" required>
+        <button class="btn" id="signUpBtn">Cadastrar</button>
+      </form>
+
+      <div id="authMsg" class="auth-msg"></div>
+    </div>
+  </div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+    integrity="sha256-o9N1j7kM7zQ3oJ1bN6Qx4x8uU5lq/0BWR8F6y+9Wb0I=" crossorigin=""></script>
+
+  <script defer src="js/script.js"></script>
+</body>
+</html>

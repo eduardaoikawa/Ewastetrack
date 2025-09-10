@@ -1,0 +1,225 @@
+:root {
+  --green: #14532d;       /* Verde escuro */
+  --green-light: #1f8a4c; /* Verde médio */
+  --purple: #6b21a8;      /* Roxo forte */
+  --purple-dark: #4c1d95; /* Roxo escuro */
+  --dark: #0d2b2f;
+  --bg: #f7f8fa;
+  --white: #ffffff;
+  --muted: #666;
+  --max-width: 1100px;
+  --radius: 10px;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Roboto, Inter, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--dark);
+  line-height: 1.6;
+}
+
+/* --- HEADER --- */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px;
+  background: var(--white);
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 3px solid var(--green);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+.title {
+  font-weight: 700;
+  color: var(--purple-dark);
+  font-size: 20px;
+}
+
+.nav a {
+  margin: 0 12px;
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav a:hover {
+  color: var(--green-light);
+}
+
+.actions .btn {
+  margin-left: 8px;
+}
+
+/* --- BUTTONS --- */
+.btn {
+  background: linear-gradient(135deg, var(--green) 0%, var(--purple) 100%);
+  color: var(--white);
+  border: none;
+  padding: 10px 16px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: opacity 0.3s ease, transform 0.1s ease;
+  font-weight: 600;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.btn:active {
+  transform: scale(0.96);
+}
+
+.btn.small {
+  padding: 6px 12px;
+  font-size: 14px;
+}
+
+/* --- HERO SECTION --- */
+.hero {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 24px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 2rem;
+  margin-bottom: 14px;
+  color: var(--green);
+}
+
+.hero p {
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+
+.cep-search {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.cep-search input {
+  padding: 12px;
+  border-radius: var(--radius);
+  border: 1px solid #ddd;
+  width: 260px;
+  font-size: 15px;
+}
+
+.info-card {
+  margin-top: 18px;
+  background: var(--white);
+  padding: 14px 18px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  display: inline-block;
+  text-align: left;
+  max-width: 500px;
+  border-left: 4px solid var(--purple);
+}
+
+.hidden {
+  display: none;
+}
+
+/* --- MAP --- */
+#map {
+  height: 450px;
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 28px auto;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+/* --- LISTA --- */
+.lista {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 10px;
+  text-align: center;
+}
+
+.lista h2 {
+  margin-bottom: 14px;
+  font-size: 1.4rem;
+  color: var(--purple-dark);
+}
+
+.lista ul {
+  list-style: none;
+  padding: 0;
+}
+
+.lista li {
+  background: var(--white);
+  margin: 10px auto;
+  padding: 12px 16px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 700px;
+  border-left: 4px solid var(--green);
+}
+
+/* --- FOOTER --- */
+.footer {
+  text-align: center;
+  padding: 16px;
+  margin-top: 40px;
+  background: var(--white);
+  box-shadow: var(--shadow);
+  color: var(--muted);
+  border-top: 3px solid var(--purple);
+}
+
+/* --- MODAL LOGIN --- */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.modal-content {
+  background: var(--white);
+  padding: 22px;
+  border-radius: var(--radius);
+  max-width: 420px;
+  width: 95%;
+  position: relative;
+  box-shadow: var(--shadow);
+  text-align: center;
+  border-top: 5px solid
