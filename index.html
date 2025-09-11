@@ -31,7 +31,7 @@
           <li class="nav-item"><a href="pages/serviço.html" class="nav-link">Serviços</a></li>
           <li class="nav-item"><a href="pages/contato.html" class="nav-link">Contato</a></li>
         </ul>
-        <button class="btn btn-light ms-3" data-bs-toggle="modal" data-bs-target="#loginModal">Entrar / Cadastrar</button>
+        
       </div>
     </div>
   </nav>
@@ -86,45 +86,6 @@
     </div>
   </div>
 
-  <!-- Login Modal -->
-  <div class="modal fade" id="loginModal" tabindex="-1">
-    <div class="modal-dialog">
-      <div class="modal-content p-3">
-        <div class="modal-header border-0">
-          <h5 class="modal-title">Acesse sua conta</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-        </div>
-
-        <ul class="nav nav-tabs" id="loginTabs">
-          <li class="nav-item">
-            <button class="nav-link active" id="tabSignIn" data-bs-toggle="tab" data-bs-target="#signInForm">Entrar</button>
-          </li>
-          <li class="nav-item">
-            <button class="nav-link" id="tabSignUp" data-bs-toggle="tab" data-bs-target="#signUpForm">Cadastrar</button>
-          </li>
-        </ul>
-
-        <div class="tab-content mt-3">
-          <!-- Entrar -->
-          <div class="tab-pane fade show active" id="signInForm">
-            <form>
-              <input id="loginEmail" type="email" class="form-control mb-2" placeholder="Email" required>
-              <input id="loginPassword" type="password" class="form-control mb-2" placeholder="Senha" required>
-              <button class="btn btn-eco w-100">Entrar</button>
-            </form>
-          </div>
-          <!-- Cadastrar -->
-          <div class="tab-pane fade" id="signUpForm">
-            <form>
-              <input id="signupName" type="text" class="form-control mb-2" placeholder="Nome completo" required>
-              <input id="signupEmail" type="email" class="form-control mb-2" placeholder="Email" required>
-              <input id="signupPassword" type="password" class="form-control mb-2" placeholder="Senha" required>
-              <button class="btn btn-eco w-100">Cadastrar</button>
-            </form>
-          </div>
-        </div>
-
-        <div id="authMsg" class="text-center mt-3"></div>
       </div>
     </div>
   </div>
