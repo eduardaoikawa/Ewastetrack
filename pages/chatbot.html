@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Chatbot de Reciclagem e Sustentabilidade</title>
+</head>
+<body style="display:flex; justify-content:center; align-items:center; height:100vh; flex-direction:column; text-align:center; font-family:Arial, sans-serif;">
+
+  <h1>Assistente de Reciclagem e Sustentabilidade</h1>
+  <p>Pergunte sobre pilhas, baterias, lixo eletrônico, sustentabilidade ou ODS.</p>
+
+  <div id="chat" style="border:1px solid #ccc; padding:10px; height:300px; width:400px; overflow-y:auto; margin-top:20px; text-align:left; background:#f9f9f9;">
+    <div><strong>Bot:</strong> Olá! Eu sou o assistente de reciclagem. Como posso ajudar hoje?</div>
+  </div>
+
+  <form id="chat-form" style="margin-top:10px; display:flex; justify-content:center; gap:5px;">
+    <input id="input" placeholder="Digite sua pergunta..." size="40" autocomplete="off">
+    <button type="submit">Enviar</button>
+  </form>
+
+  <script>
+    const respostas = {
+      "pilhas": "Pilhas devem ser descartadas em pontos de coleta especiais, como mercados, escolas e ecopontos.",
+      "baterias": "Baterias precisam ser levadas a pontos de coleta autorizados, pois contêm metais pesados perigosos.",
+      "celular": "Celulares podem ser reciclados em lojas de eletrônicos ou ecopontos cadastrados.",
+      "carregador": "Cabos e carregadores devem ser entregues em pontos de coleta de eletrônicos.",
+      "computador": "Computadores antigos podem ser doados, reciclados ou entregues em cooperativas.",
+      "lixo comum": "Nunca jogue lixo eletrônico no lixo comum! Ele pode contaminar o solo e a água.",
+      "plástico": "Sempre que possível, reutilize plásticos. Caso precise descartar, separe-os e leve para a coleta seletiva.",
+      "papel": "Papel limpo pode ser reciclado. Evite misturar com papel sujo ou engordurado.",
+      "vidro": "Vidros são 100% recicláveis. Lave-os e leve à coleta seletiva.",
+      "metal": "Metais como alumínio e ferro podem ser reciclados várias vezes sem perder qualidade.",
+      "água": "Fechar a torneira ao escovar os dentes pode economizar até 12 litros de água por minuto!",
+      "energia": "Economizar energia reduz emissões de CO₂. Prefira lâmpadas LED e desligue aparelhos quando não estiver usando.",
+      "cooperativa": "Cooperativas de catadores fazem parte da cadeia de reciclagem e ajudam a gerar renda e inclusão social.",
+      "sustentabilidade": "Sustentabilidade é sobre equilibrar economia, sociedade e meio ambiente, garantindo recursos para o futuro.",
+      "ods": "Os ODS (Objetivos de Desenvolvimento Sustentável) são 17 metas da ONU para um mundo mais justo e sustentável.",
+      "ods 12": "O ODS 12 trata sobre Consumo e Produção Responsáveis, incentivando menos desperdício e mais reciclagem.",
+      "ods 13": "O ODS 13 é sobre Ação Contra a Mudança Global do Clima.",
+      "ods 15": "O ODS 15 foca na Vida Terrestre: proteger florestas, combater a desertificação e preservar a biodiversidade.",
+      "economia circular": "A economia circular propõe reduzir, reutilizar e reciclar, mantendo os recursos em uso por mais tempo.",
+      "reciclagem": "Reciclar é transformar materiais usados em novos produtos, reduzindo a extração de recursos naturais.",
+      "reutilizar": "Reutilizar é dar um novo uso para um objeto, evitando que ele vire lixo.",
+      "reduzir": "Reduzir é consumir de forma consciente, evitando desperdícios de recursos naturais.",
+      "coleta seletiva": "A coleta seletiva separa os resíduos por tipo: papel, plástico, vidro, metal e rejeitos.",
+      "eletrônico": "Lixo eletrônico contém metais tóxicos. Sempre descarte em pontos de coleta especializados.",
+      "contaminação": "Se descartados incorretamente, eletrônicos podem liberar chumbo, mercúrio e cádmio, contaminando o solo e a água."
+    };
+
+    const chat = document.getElementById("chat");
+    const form = document.getElementById("chat-form");
+    const input = document.getElementById("input");
+
+    function addMessage(text, sender) {
+      const div = document.createElement("div");
+      div.innerHTML = `<strong>${sender}:</strong> ${text}`;
+      chat.appendChild(div);
+      chat.scrollTop = chat.scrollHeight;
+    }
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const msg = input.value.trim().toLowerCase();
+      if (!msg) return;
+
+      addMessage(msg, "Você");
+      input.value = "";
+
+      let resposta = "Ainda não sei responder isso. Mas lembre-se: reduzir, reutilizar e reciclar sempre!";
+      for (const chave in respostas) {
+        if (msg.includes(chave)) {
+          resposta = respostas[chave];
+          break;
+        }
+      }
+
+      setTimeout(() => addMessage(resposta, "Bot"), 500);
+    });
+  </script>
+</body>
+</html>
