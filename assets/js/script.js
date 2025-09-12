@@ -48,7 +48,7 @@ document.getElementById("buscarCepBtn").addEventListener("click", async () => {
 
     let userLatLon = cidadesLatLon[data.localidade] || { lat:-23.5505, lon:-46.6333 };
 
-    const MAX_DISTANCE = 50; // km
+    const MAX_DISTANCE = 50; 
     const nearbyPoints = recyclingPoints.filter(p => getDistance(userLatLon.lat, userLatLon.lon, p.lat, p.lon) <= MAX_DISTANCE);
 
     let content = "";
@@ -58,7 +58,7 @@ document.getElementById("buscarCepBtn").addEventListener("click", async () => {
         content += `<strong>${p.name}</strong><br>${p.address}<br><br>`;
       });
     } else {
-      // Nenhum ponto próximo: exibe todos
+      
       recyclingPoints.forEach(p => {
         content += `<strong>${p.name}</strong><br>${p.address}<br><br>`;
       });
