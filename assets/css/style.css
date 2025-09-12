@@ -1,9 +1,11 @@
 body {
-  background: linear-gradient(135deg, #5A189A, #7B2CBF, #9D4EDD);
+  background: linear-gradient(135deg, #0d47a1, #000000);
   font-family: 'Verdana', sans-serif;
   color: #f8f9fa;
   margin: 0;
 }
+
+
 
 .navbar {
   background: rgba(0, 0, 0, 0.2);
@@ -17,11 +19,11 @@ body {
 }
 
 .nav-link:hover {
-  color: #80ED99 !important; /* verde destaque */
+  color: #80ED99 !important;
 }
 
 .hero {
-  background: linear-gradient(rgba(90,24,154,0.85), rgba(157,78,221,0.85)),
+  background: linear-gradient(rgba(13,71,161,0.7), rgba(0,0,0,0.7)),
               url('assets/eco-bg.jpg') no-repeat center/cover;
   color: #fff;
   padding: 5rem 1rem;
@@ -29,6 +31,8 @@ body {
   border-radius: 0 0 40px 40px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
+
+
 
 #map {
   height: 400px;
@@ -84,6 +88,7 @@ footer {
 #cepInfo {
     color: black;
 }
- h6, h5 {
+ 
+h6, h5  {
     color: black;
  }
