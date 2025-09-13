@@ -5,21 +5,20 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Sobre — ECOcharge</title>
 
-  
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <style>
     body {
-  background: linear-gradient(135deg, #0d47a1, #000000);
-  font-family: 'Verdana', sans-serif;
-  color: #f8f9fa;
-  margin: 0;
-}
+      background-color: #5A189A; /* Roxo sólido */
+      font-family: 'Verdana', sans-serif;
+      color: #f8f9fa;
+      margin: 0;
+    }
 
     header.navbar {
-      background: rgba(0, 0, 0, 0.25) !important;
+      background: rgba(90, 24, 154, 0.9) !important; /* Roxo */
       backdrop-filter: blur(10px);
-      border-bottom: 2px solid #000000;
+      border-bottom: 2px solid #3C096C;
     }
 
     .navbar-brand {
@@ -52,19 +51,27 @@
     }
 
     h1, h2 {
-      color: #80ED99;
+      color: #C77DFF; /* Roxo mais claro para contraste */
       font-weight: bold;
     }
 
     footer {
-      background: rgba(0, 0, 0, 0.25) !important;
-      backdrop-filter: blur(8px);
-      border-top: 2px solid #000000;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #5A189A; /* Mesmo roxo do body */
+      color: #f8f9fa;
+      text-align: center;
+      padding: 8px 0;
+      font-size: 1rem;
+      box-shadow: 0 -1px 5px rgba(0,0,0,0.3);
+      z-index: 1000;
     }
   </style>
 </head>
 <body>
-  <header class="navbar navbar-expand-lg navbar-dark bg-success">
+  <header class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center" href="#">
         <img src="assets/logo.png" alt="ECOcharge" width="40" class="me-2">
@@ -81,39 +88,15 @@
     <p>O ECOcharge ajuda pessoas a localizar pontos de descarte de baterias corretamente perto de casa. Projeto para o Hackteen — Startup Explorer.</p>
 
     <h2 class="mt-4">Missão</h2>
-    <p>A missão do nosso aplicativo é facilitar o descarte correto de pilhas e baterias, conectando os cidadãos aos pontos de col
-      eta mais próximos de suas residências. No Brasil, são vendidas cerca de 1,4 bilhão de pilhas por ano, mas apenas 1% delas é coletado e reciclado de forma adequada, o que significa que a i
-      mensa maioria ainda é descartada incorretamente no lixo comum. Essa prática representa um risco ambiental e de saúde, já que substâncias tóxicas presentes nesses materiais contaminam o solo e a água.
-
-Nosso compromisso é promover a consciência ambiental e incentivar práticas sustentáveis. Queremos ajudar a mudar essa realidade, tornando o acesso à informação rápido, simples e acessível, para que cada pessoa possa contribuir com a elevação das taxas de descarte correto — que em alguns países chegam a 50%, enquanto globalmente, em baterias de íon-lítio, a reciclagem não passa de 5–10%.
-
-Com isso, buscamos construir um futuro mais limpo, seguro e responsável para todos.</p>
+    <p>A missão do nosso aplicativo é facilitar o descarte correto de pilhas e baterias, conectando os cidadãos aos pontos de col eta mais próximos de suas residências. No Brasil, são vendidas cerca de 1,4 bilhão de pilhas por ano, mas apenas 1% delas é coletado e reciclado de forma adequada, o que significa que a maioria ainda é descartada incorretamente no lixo comum. Essa prática representa um risco ambiental e de saúde, já que substâncias tóxicas presentes nesses materiais contaminam o solo e a água.</p>
 
     <h2 class="mt-4">Equipe</h2>
     <p>Maria Eduarda Oikawa, Maria Eduarda Sakai, Heloisa Vieira — ETEC: Elias Miguel Junior - Fatec Votorantim</p>
   </main>
 
   <footer>
-  <small>© ECOcharge</small>
-</footer>
-
-<style>
-  footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: rgba(13,71,161,0.7); 
-    color: #f8f9fa;
-    text-align: center;
-    padding: 8px 0;        
-    font-size: 1rem;     
-    box-shadow: 0 -1px 5px rgba(0,0,0,0.3); 
-    z-index: 1000;
-    backdrop-filter: blur(5px); 
-  }
-</style>
-
+    <small>© ECOcharge</small>
+  </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
