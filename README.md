@@ -1,4 +1,4 @@
-# 🌱 ECOcharge  
+# 🌱 Ewastetrack  
 
 ### 🌎 Projeto desenvolvido na **ETEC Professor Elias Miguel Junior**  
 
@@ -13,7 +13,7 @@
 
 ## 🎯 Objetivo do Projeto  
 
-O **ECOcharge** é um projeto desenvolvido com a missão de **promover a sustentabilidade e o descarte correto de baterias**, um problema cada vez mais relevante em nosso cotidiano.  
+O **Ewastetrack** é um projeto desenvolvido com a missão de **promover a sustentabilidade e o descarte correto de baterias**, um problema cada vez mais relevante em nosso cotidiano.  
 
 O descarte inadequado de baterias pode causar **contaminação do solo, poluição da água e riscos à saúde**. Pensando nisso, o ECOcharge foi criado como **uma ferramenta prática e acessível** para ajudar pessoas a encontrarem locais seguros para descartar baterias usadas, contribuindo para um mundo mais limpo e consciente.  
 
@@ -40,7 +40,7 @@ Para utilizar o projeto, siga os passos abaixo:
    - Localize o arquivo **`index.html`** na pasta do projeto.  
    - Clique **duas vezes** sobre ele para abrir no navegador de sua preferência.  
 
-✅ Pronto! Agora você pode explorar o **ECOcharge** e descobrir os pontos de descarte de baterias próximos a você.  
+✅ Pronto! Agora você pode explorar o **Ewastetrack** e descobrir os pontos de descarte de baterias próximos a você.  
 
 ---
 
@@ -60,6 +60,6 @@ Comprometida com a formação de alunos conscientes, inovadores e preparados par
 ## ✨ Mensagem Final  
 
 > “Pequenas ações fazem grandes mudanças.  
-> Com o **ECOcharge**, cada bateria descartada corretamente é um passo a mais em direção a um planeta mais saudável e sustentável.”  
+> Com o **Ewastetrack**, cada bateria descartada corretamente é um passo a mais em direção a um planeta mais saudável e sustentável.”  
 
 ---
