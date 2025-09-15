@@ -24,7 +24,7 @@ Principais objetivos do projeto:
 - ⚡ **Facilitar a ação de cidadãos conscientes**, tornando o processo rápido e intuitivo.  
 - 💡 **Incentivar hábitos sustentáveis**, mostrando que pequenas ações podem gerar grandes impactos ambientais.  
 
-Com o ECOcharge, qualquer pessoa pode **contribuir para a preservação do meio ambiente**, encontrando pontos de coleta de maneira simples e rápida.  
+Com o Ewastetrack, qualquer pessoa pode **contribuir para a preservação do meio ambiente**, encontrando pontos de coleta de maneira simples e rápida.  
 
 ---
 
