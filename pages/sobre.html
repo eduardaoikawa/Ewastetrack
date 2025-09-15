@@ -9,11 +9,12 @@
 
   <style>
     body {
-     background: linear-gradient(135deg, #9D4EDD, #5A189A); 
+      background: linear-gradient(135deg, #9D4EDD, #5A189A); 
       font-family: 'Verdana', sans-serif;
       color: #f8f9fa;
       margin: 0;
     }
+
     header.navbar {
       background: rgba(90, 24, 154, 0.9) !important; 
       backdrop-filter: blur(10px);
@@ -50,7 +51,7 @@
     }
 
     h1, h2 {
-      color:#4B0082; 
+      color: #4B0082;
       font-weight: bold;
     }
 
@@ -67,9 +68,49 @@
       box-shadow: 0 -1px 5px rgba(0,0,0,0.3);
       z-index: 1000;
     }
+
+    /* Estilos da seção "Sobre Nós" */
+    .galeria {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .pessoa {
+      background-color: #ffffff;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      width: 220px;
+      color: #000;
+    }
+
+    .pessoa img {
+      width: 100%;
+      border-radius: 6px;
+      margin-bottom: 15px;
+    }
+
+    .nome {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .funcao {
+      font-size: 14px;
+    }
+
+    .destaque {
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
+
+  <!-- Cabeçalho -->
   <header class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center" href="#">
@@ -82,21 +123,46 @@
     </div>
   </header>
 
+  <!-- Conteúdo principal -->
   <main class="container my-5">
     <h1 class="mb-4">Sobre o Ewastetrack</h1>
     <p>O Ewastetrack ajuda pessoas a localizar pontos de descarte de baterias corretamente perto de casa. Projeto para o Hackteen — Startup Explorer.</p>
 
     <h2 class="mt-4">Missão</h2>
-    <p>A missão do nosso aplicativo é facilitar o descarte correto de pilhas e baterias, conectando os cidadãos aos pontos de col eta mais próximos de suas residências. No Brasil, são vendidas cerca de 1,4 bilhão de pilhas por ano, mas apenas 1% delas é coletado e reciclado de forma adequada, o que significa que a maioria ainda é descartada incorretamente no lixo comum. Essa prática representa um risco ambiental e de saúde, já que substâncias tóxicas presentes nesses materiais contaminam o solo e a água.</p>
+    <p>A missão do nosso aplicativo é facilitar o descarte correto de pilhas e baterias, conectando os cidadãos aos pontos de coleta mais próximos de suas residências. No Brasil, são vendidas cerca de 1,4 bilhão de pilhas por ano, mas apenas 1% delas é coletado e reciclado de forma adequada, o que significa que a maioria ainda é descartada incorretamente no lixo comum. Essa prática representa um risco ambiental e de saúde, já que substâncias tóxicas presentes nesses materiais contaminam o solo e a água.</p>
 
-    <h2 class="mt-4">Equipe</h2>
-    <p>Maria Eduarda Oikawa, Maria Eduarda Sakai, Heloisa Vieira — ETEC: Elias Miguel Junior - Fatec Votorantim</p>
+    <h2 class="mt-5">Sobre nós</h2>
+    <p>Somos três fundadoras comprometidas com o meio ambiente e o descarte consciente de resíduos eletrônicos.</p>
+
+    <div class="galeria">
+      <div class="pessoa">
+        <img src="fotodaOikawa.jpg" alt="Maria Eduarda Oikawa">
+        <div class="nome">Maria Eduarda Oikawa</div>
+        <div class="funcao destaque">Desenvolvedora Web e fundadora</div>
+      </div>
+
+      <div class="pessoa">
+        <img src="minhafoto.enc" alt="Heloisa Dias">
+        <div class="nome">Heloisa Dias</div>
+        <div class="funcao destaque">Desenvolvedora Web e fundadora</div>
+      </div>
+
+      <div class="pessoa">
+        <img src="fotodaSakai.jpg" alt="Maria Eduarda Sakai">
+        <div class="nome">Maria Eduarda Sakai</div>
+        <div class="funcao destaque">Desenvolvedora Web e fundadora</div>
+      </div>
+    </div>
+
+    <p style="margin-top: 50px;">Nosso objetivo é facilitar o descarte consciente e cuidar do meio ambiente juntos.</p>
   </main>
 
+  <!-- Rodapé -->
   <footer>
     <small>© Ewastetrack</small>
   </footer>
 
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
