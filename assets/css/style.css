@@ -1,3 +1,10 @@
+
+:root {
+  --cor-primaria: #000;
+  --cor-secundaria:  #000;
+  --cor-terciaria:   #000;
+}
+
 body {
   background: linear-gradient(135deg, #5A189A, #7B2CBF, #9D4EDD);
   font-family: 'Verdana', sans-serif;
