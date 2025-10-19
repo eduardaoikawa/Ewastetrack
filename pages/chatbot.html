@@ -2,138 +2,149 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Chatbot de Reciclagem e Sustentabilidade</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chatbot Sustentável</title>
   <style>
+    /* RESET */
+    * { margin:0; padding:0; box-sizing:border-box; font-family: 'Verdana', sans-serif; }
+
     body {
-      background: linear-gradient(135deg, #9D4EDD, #5A189A); 
-      font-family: 'Verdana', sans-serif;
-      color: #f8f9fa;
-      margin: 0;
-      display:flex; 
-      justify-content:center; 
-      align-items:center; 
-      height:100vh;
-      flex-direction:column;
-      text-align:center;
+      background: #2E7D32;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 80px 20px 20px 20px; /* espaço para botão fixo no topo */
+      color: #ffffff;
     }
 
+    /* Botão voltar */
     .btn-eco {
       position: fixed;
       top: 20px;
       right: 20px;
-      z-index: 1000;
-      background: linear-gradient(135deg, #80ED99, #38A3A5);
-      border: none;
-      color: #212529;
+      background: #ffffff;
+      color: #2E7D32;
       font-weight: bold;
       padding: 0.5rem 1rem;
       border-radius: 25px;
-      transition: 0.3s;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-      font-size: 0.9rem;
       text-decoration: none;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+    .btn-eco:hover {
+      background: #2E7D32;
+      color: #ffffff;
+      transform: scale(1.05);
     }
 
-    .btn-eco:hover { opacity: 0.9; }
+    /* Título e parágrafo */
+    h1 { font-size: 2rem; margin-bottom: 10px; text-align: center; color: #ffffff; }
+    p { font-size: 1rem; margin-bottom: 20px; text-align: center; color: #ffffff; }
 
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 5px;
-      text-shadow: 1px 1px 5px #000000;
-    }
-
-    p {
-      font-size: 1rem;
-      margin-bottom: 20px;
-      text-shadow: 1px 1px 3px #000000;
-    }
-
+    /* Chat */
     #chat {
-      border-radius: 15px;
-      border: none;
-      width: 450px;
+      background: #ffffff; /* verde claro original */
+      color: #212529;
+      width: 100%;
+      max-width: 500px;
       height: 350px;
+      border-radius: 15px;
       padding: 15px;
       overflow-y: auto;
-      background: linear-gradient(135deg, #f9f9f9, #e0f7fa);
-      color: #212529;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-      text-align:left;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     }
 
+    /* Mensagens */
+    .bot-message {
+      background: #e0f7fa;
+      color: #212529;
+      padding: 10px 12px;
+      border-radius: 12px;
+      max-width: 80%;
+      align-self: flex-start;
+    }
+
+    .user-message {
+      background: #80ED99;
+      color: #212529;
+      padding: 10px 12px;
+      border-radius: 12px;
+      max-width: 80%;
+      align-self: flex-end;
+    }
+
+    .typing {
+      font-style: italic;
+      color: #555;
+      align-self: flex-start;
+    }
+
+    /* Formulário */
     #chat-form {
       margin-top: 15px;
-      display:flex;
-      justify-content:center;
-      gap:10px;
-      width: 450px;
+      display: flex;
+      width: 100%;
+      max-width: 500px;
+      gap: 10px;
     }
 
     #input {
       flex: 1;
-      padding: 10px;
+      padding: 12px;
       border-radius: 25px;
-      border: 1px solid #38A3A5;
+      border: 2px solid #38A3A5;
       outline: none;
-      font-size: 0.95rem;
+      font-size: 1rem;
+      color: #212529;
+      background: #f9f9f9;
     }
 
     #chat-form button {
-      background: linear-gradient(135deg, #80ED99, #38A3A5);
-      border: none;
-      color: #212529;
+      background: #ffffff;
+      color: #2E7D32;
       font-weight: bold;
-      padding: 0 15px;
+      padding: 12px 20px;
       border-radius: 25px;
+      border: none;
       cursor: pointer;
-      transition: 0.3s;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+    }
+    #chat-form button:hover {
+      background: #2E7D32;
+      color: #ffffff;
+      transform: scale(1.05);
     }
 
-    #chat-form button:hover { opacity: 0.9; }
-
-    #chat .bot-message {
-      background: #e0f7fa;
-      padding: 8px 12px;
-      border-radius: 12px;
-      max-width: 80%;
-      align-self: flex-start;
-      color: #212529;
-    }
-
-    #chat .user-message {
-      background: #80ED99;
-      padding: 8px 12px;
-      border-radius: 12px;
-      max-width: 80%;
-      align-self: flex-end;
-      color: #212529;
-    }
-
+    /* Footer */
     footer {
-      position: fixed;
-      bottom: 0;
-      left: 0;
       width: 100%;
-      background: linear-gradient(135deg, #9D4EDD, #5A189A); 
-      color: #f8f9fa;
+      max-width: 500px;
       text-align: center;
-      padding: 8px 0;        
-      font-size: 1rem;     
-      box-shadow: 0 -1px 5px rgba(0,0,0,0.3); 
-      z-index: 1000;
-      backdrop-filter: blur(5px); 
+      padding: 10px 0;
+      margin-top: 20px;
+      color: #ffffff;
+    }
+
+    /* Responsivo */
+    @media (max-width: 600px) {
+      h1 { font-size: 1.5rem; }
+      #chat { height: 300px; }
+      #chat-form { flex-direction: column; }
+      #chat-form button { width: 100%; }
+      #input { width: 100%; }
     }
   </style>
 </head>
 <body>
 
-  <a href="../index.html" class="btn btn-eco">Voltar</a>
+  <a href="/index.html" class="btn-eco">Voltar</a>
 
-  <h1>Assistente de Reciclagem e Sustentabilidade</h1>
+  <h1>Assistente de Reciclagem</h1>
   <p>Pergunte sobre pilhas, baterias, lixo eletrônico, sustentabilidade ou ODS.</p>
 
   <div id="chat">
@@ -141,7 +152,7 @@
   </div>
 
   <form id="chat-form">
-    <input id="input" placeholder="Digite sua pergunta..." autocomplete="off">
+    <input id="input" type="text" placeholder="Digite sua pergunta..." autocomplete="off" />
     <button type="submit">Enviar</button>
   </form>
 
@@ -150,74 +161,90 @@
   </footer>
 
   <script>
-   const respostas = {
-  "pilhas": "♻️ Pilhas devem ser descartadas em pontos de coleta especiais, como mercados, escolas e ecopontos. Não jogue no lixo comum!",
-  "baterias": "⚡ Baterias contêm metais pesados. Leve sempre a pontos de coleta autorizados para evitar contaminação.",
-  "celular": "📱 Celulares antigos podem ser reciclados em lojas de eletrônicos ou entregues em ecopontos cadastrados.",
-  "carregador": "🔌 Cabos e carregadores podem ser entregues nos pontos de coleta de eletrônicos. Evite descartá-los no lixo comum.",
-  "computador": "💻 Computadores antigos podem ser doados, reciclados ou levados a cooperativas especializadas.",
-  "lixo comum": "🚫 Nunca jogue lixo eletrônico no lixo comum! Ele pode contaminar o solo e a água.",
-  "plástico": "🧴 Sempre que possível, reutilize plásticos. Caso precise descartar, separe-os corretamente para a coleta seletiva.",
-  "papel": "📄 Papel limpo pode ser reciclado. Evite misturar com papel sujo ou engordurado.",
-  "vidro": "🥛 Vidros são 100% recicláveis. Lave-os e leve à coleta seletiva.",
-  "metal": "🔩 Metais como alumínio e ferro podem ser reciclados várias vezes sem perder qualidade.",
-  "água": "💧 Fechar a torneira ao escovar os dentes pode economizar até 12 litros de água por minuto!",
-  "energia": "💡 Economizar energia reduz emissões de CO₂. Prefira lâmpadas LED e desligue aparelhos quando não estiver usando.",
-  "cooperativa": "🤝 Cooperativas de catadores ajudam a reciclar e ainda geram renda e inclusão social.",
-  "sustentabilidade": "🌱 Sustentabilidade é sobre equilibrar economia, sociedade e meio ambiente, garantindo recursos para o futuro.",
-  "ods": "🌍 Os ODS (Objetivos de Desenvolvimento Sustentável) são 17 metas da ONU para um mundo mais justo e sustentável.",
-  "ods 12": "♻️ ODS 12 trata de Consumo e Produção Responsáveis, incentivando menos desperdício e mais reciclagem.",
-  "ods 13": "🌡 ODS 13 é sobre Ação Contra a Mudança Climática. Cada gesto conta!",
-  "ods 15": "🌳 ODS 15 foca na Vida Terrestre: proteger florestas, combater desertificação e preservar a biodiversidade.",
-  "economia circular": "🔄 A economia circular propõe reduzir, reutilizar e reciclar, mantendo os recursos em uso por mais tempo.",
-  "reciclagem": "♻️ Reciclar transforma materiais usados em novos produtos, evitando desperdício de recursos naturais.",
-  "reutilizar": "🔁 Reutilizar é dar um novo uso para um objeto, evitando que vire lixo.",
-  "reduzir": "📉 Reduzir é consumir conscientemente, evitando desperdício de recursos.",
-  "coleta seletiva": "🗑 A coleta seletiva separa resíduos por tipo: papel, plástico, vidro, metal e rejeitos.",
-  "eletrônico": "💾 Lixo eletrônico contém metais tóxicos. Sempre descarte em pontos de coleta especializados.",
-  "contaminação": "☠️ Descartar eletrônicos incorretamente pode liberar chumbo, mercúrio e cádmio, contaminando solo e água."
-};
-const chat = document.getElementById("chat");
-const form = document.getElementById("chat-form");
-const input = document.getElementById("input");
+    const respostas = {
+      "pilhas": "Pilhas devem ser descartadas em pontos de coleta especiais, como mercados, escolas e ecopontos.",
+      "baterias": "Baterias contêm metais pesados. Leve sempre a pontos de coleta autorizados.",
+      "celular": "Celulares antigos podem ser reciclados em lojas de eletrônicos ou ecopontos cadastrados.",
+      "carregador": "Cabos e carregadores podem ser entregues nos pontos de coleta de eletrônicos.",
+      "computador": "Computadores antigos podem ser doados, reciclados ou levados a cooperativas.",
+      "óleo": "Óleo de cozinha usado deve ser armazenado e levado a pontos de coleta.",
+      "lâmpadas": "Lâmpadas fluorescentes ou LEDs antigas devem ser levadas a ecopontos ou lojas de materiais.",
+      "roupas": "Roupas e calçados usados podem ser doados para instituições ou brechós sociais.",
+      "plástico": "Plásticos devem ser separados e levados à coleta seletiva.",
+      "vidro": "Vidros devem ser reciclados através da coleta seletiva.",
+      "papel": "Papéis e papelão devem ser encaminhados à coleta seletiva.",
+      "orgânico": "Resíduos orgânicos podem ser compostados em casa ou em pontos comunitários.",
+      "ods": "ODS são 17 metas da ONU para proteger o planeta e melhorar a vida das pessoas.",
+      "energia": "Economize energia desligando luzes e aparelhos quando não estiverem em uso.",
+      "água": "Feche a torneira ao escovar os dentes ou ensaboar a louça para economizar água."
+    };
 
-function addMessage(text, sender, isBot = false) {
-  const div = document.createElement("div");
-  div.className = isBot ? "bot-message" : "user-message";
-  chat.appendChild(div);
-  
-  if(isBot){
-    let i = 0;
-    const interval = setInterval(() => {
-      div.innerHTML = `<strong>Bot:</strong> ${text.substring(0, i)}`;
-      i++;
-      if(i > text.length) clearInterval(interval);
-      chat.scrollTop = chat.scrollHeight;
-    }, 20); 
-  } else {
-    div.innerHTML = `<strong>Você:</strong> ${text}`;
-    chat.scrollTop = chat.scrollHeight;
-  }
-}
+    const dicas = [
+      "Separe seu lixo corretamente para facilitar a reciclagem.",
+      "Economize água fechando a torneira ao escovar os dentes.",
+      "Prefira produtos reutilizáveis em vez de descartáveis.",
+      "Descarte pilhas e baterias em pontos de coleta autorizados.",
+      "Evite plásticos descartáveis, use sacolas de pano.",
+      "Apague as luzes ao sair de um ambiente para economizar energia.",
+      "Composte restos de alimentos para reduzir o lixo orgânico.",
+      "Participe de mutirões de limpeza e reciclagem na sua cidade.",
+      "Use sacolas de pano ao fazer compras, evitando plásticas.",
+      "Evite produtos descartáveis, prefira reutilizáveis (copos, talheres, garrafas).",
+      "Apague luzes e eletrônicos quando não estiverem em uso.",
+      "Tome banhos mais curtos e feche a torneira ao escovar os dentes.",
+      "Reaproveite embalagens plásticas para armazenamento ou jardinagem.",
+      "Doe roupas e calçados usados para instituições de caridade.",
+      "Priorize transporte sustentável: bicicleta, caminhada ou transporte público."
+    ];
 
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const msg = input.value.trim().toLowerCase();
-  if (!msg) return;
+    const chat = document.getElementById("chat");
+    const form = document.getElementById("chat-form");
+    const input = document.getElementById("input");
 
-  addMessage(msg, "Você");
-  input.value = "";
+    function addMessage(text, sender, isBot=false){
+      const div = document.createElement("div");
+      div.className = isBot ? "bot-message" : "user-message";
+      chat.appendChild(div);
 
-  let resposta = "Ainda não sei responder isso. Mas lembre-se: reduzir, reutilizar e reciclar sempre!";
-  for (const chave in respostas) {
-    if (msg.includes(chave)) {
-      resposta = respostas[chave];
-      break;
+      if(isBot){
+        let i = 0;
+        div.innerHTML = `<strong>${sender}:</strong> `;
+        const interval = setInterval(()=>{
+          div.innerHTML = `<strong>${sender}:</strong> ${text.substring(0,i)}`;
+          i++;
+          if(i>text.length) clearInterval(interval);
+          chat.scrollTop = chat.scrollHeight;
+        },20);
+      } else {
+        div.innerHTML = `<strong>${sender}:</strong> ${text}`;
+        chat.scrollTop = chat.scrollHeight;
+      }
     }
-  }
 
-  setTimeout(() => addMessage(resposta, "Bot", true), 300);
-});
+    function sendMessage(){
+      const msg = input.value.trim();
+      if(!msg) return;
+      addMessage(msg,"Você");
+      input.value = "";
+
+      if(msg.toLowerCase().includes("dica")){
+        const dica = dicas[Math.floor(Math.random()*dicas.length)];
+        setTimeout(()=>addMessage(dica,"Bot",true),300);
+        return;
+      }
+
+      let resposta = "Ainda não sei responder isso. Mas lembre-se: reduzir, reutilizar e reciclar sempre!";
+      for(const chave in respostas){
+        if(msg.toLowerCase().includes(chave)){
+          resposta = respostas[chave];
+          break;
+        }
+      }
+      setTimeout(()=>addMessage(resposta,"Bot",true),300);
+    }
+
+    form.addEventListener("submit",e=>{ e.preventDefault(); sendMessage(); });
+    input.addEventListener("keydown",e=>{ if(e.key==="Enter"){ e.preventDefault(); sendMessage(); } });
   </script>
 </body>
 </html>
