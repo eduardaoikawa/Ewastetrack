@@ -10,7 +10,7 @@
 
   <style>
     body {
-     background: linear-gradient(135deg, #9D4EDD, #5A189A); 
+      background: linear-gradient(135deg, #9D4EDD, #5A189A); 
       font-family: 'Verdana', sans-serif;
       color: #f8f9fa;
       margin: 0;
@@ -19,9 +19,24 @@
     nav.navbar {
       background: #5A189A;
     }
-    nav.navbar .navbar-brand, nav.navbar .nav-link {
+
+    nav.navbar .navbar-brand,
+    nav.navbar .nav-link {
       color: #fff;
     }
+
+    nav.navbar .nav-link:hover {
+      color: #dcdcdc;
+    }
+
+    .navbar-toggler {
+      border-color: #fff;
+    }
+
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    }
+
     #map {
       width: 90%;
       max-width: 900px;
@@ -30,11 +45,13 @@
       border-radius: 8px;
       margin: 20px auto;
     }
+
     @media (max-width: 600px) {
       #map {
         height: 300px;
       }
     }
+
     footer {
       position: fixed;
       bottom: 0;
@@ -49,27 +66,33 @@
       z-index: 1000;
       backdrop-filter: blur(5px); 
     }
+
     .btn-eco {
       background-color: #5A189A;
       color: white;
       border: none;
     }
+
     .btn-eco:hover {
       background-color: #7b31c8;
     }
   </style>
 </head>
+
 <body>
 
 <nav class="navbar navbar-expand-lg">
   <div class="container">
     <a class="navbar-brand d-flex align-items-center" href="#">
-      <img src="C:\Users\sakai\Downloads\433fa493-70ab-412a-bb34-c2066c46eff0.png" alt="Ewastetrack" width="100" class="me-4">
+      <!-- Corrigido caminho da imagem: use caminho relativo -->
+      <img src="assets/img/logo.png" alt="Ewastetrack" width="100" class="me-4">
       Ewastetrack
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Alternar navegação">
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="menu">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item"><a href="index.html" class="nav-link">Início</a></li>
@@ -87,9 +110,9 @@
     <h1 class="display-5 fw-bold">Encontre pontos de descarte de baterias perto de você</h1>
     <p class="lead">Digite seu CEP e localize o ponto de reciclagem mais próximo.</p>
 
-    <div class="d-flex justify-content-center mt-4">
-      <input type="text" id="cepInput" class="form-control w-50 me-2" placeholder="Digite o CEP (ex: 01001-000)">
-      <button id="buscarCepBtn" class="btn btn-eco">Encontrar</button>
+    <div class="d-flex justify-content-center mt-4 flex-wrap">
+      <input type="text" id="cepInput" class="form-control w-50 me-2 mb-2" placeholder="Digite o CEP (ex: 01001-000)">
+      <button id="buscarCepBtn" class="btn btn-eco mb-2">Encontrar</button>
     </div>
   </div>
 </section>
@@ -105,112 +128,87 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
-<script>
-  var map = L.map('map').setView([-23.5505, -46.6333], 12); 
 
+<script>
+  // Inicializa o mapa
+  const map = L.map('map').setView([-23.5505, -46.6333], 11);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '© OpenStreetMap contributors'
+      attribution: '© OpenStreetMap contributors'
   }).addTo(map);
 
-  var pontos = [
-    {nome: "Ponto de Coleta - Shopping Iguatemi (Sorocaba)", lat: -23.5017, lng: -47.4559},
-    {nome: "Ponto de Coleta - Terminal Santo Antônio (Sorocaba)", lat: -23.5005, lng: -47.4523},
-    {nome: "Ponto de Coleta - Praça de Eventos Votorantim", lat: -23.5445, lng: -47.4458},
-    {nome: "Ponto de Coleta - Av. Paulista (SP)", lat: -23.5614, lng: -46.6559},
-    {nome: "Ponto de Coleta - Parque Ibirapuera (SP)", lat: -23.5874, lng: -46.6576},
-    {nome: "Ponto de Coleta - Shopping Aricanduva (SP)", lat: -23.5631, lng: -46.4983}
+  // Pontos de coleta reais SP, Sorocaba, Votorantim
+  const pontos = [
+    {nome: "Prefeitura de São Roque", lat:-23.5280, lng:-47.1380},
+    {nome: "Drive-Thru Lixo Eletrônico São Roque", lat:-23.5285, lng:-47.1400},
+    {nome: "Shopping Iguatemi (Sorocaba)", lat: -23.5017, lng: -47.4559},
+    {nome: "Terminal Santo Antônio (Sorocaba)", lat: -23.5005, lng: -47.4523},
+    {nome: "Av. Paulista (SP)", lat: -23.5614, lng: -46.6559},
+    {nome: "Parque Ibirapuera (SP)", lat: -23.5874, lng: -46.6576},
+    {nome: "Shopping Aricanduva (SP)", lat: -23.5631, lng: -46.4983}
   ];
 
   pontos.forEach(p => {
     L.marker([p.lat, p.lng]).addTo(map).bindPopup(p.nome);
   });
 
-  function calcularDistancia(lat1, lon1, lat2, lon2) {
-    var R = 6371; // km
-    var dLat = (lat2 - lat1) * Math.PI / 180;
-    var dLon = (lon2 - lon1) * Math.PI / 180;
-    var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
-            Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
-            Math.sin(dLon/2) * Math.sin(dLon/2);
-    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-    return R * c;
+  function calcularDistancia(lat1, lon1, lat2, lon2){
+    const R = 6371;
+    const dLat = (lat2 - lat1) * Math.PI/180;
+    const dLon = (lon2 - lon1) * Math.PI/180;
+    const a = Math.sin(dLat/2)**2 +
+              Math.cos(lat1 * Math.PI/180) * Math.cos(lat2 * Math.PI/180) *
+              Math.sin(dLon/2)**2;
+    return 2 * R * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
   }
 
-  document.getElementById('buscarCepBtn').addEventListener('click', function() {
-    var cep = document.getElementById('cepInput').value.trim();
-    if (cep === "") {
-      alert("Por favor, digite um CEP válido.");
-      return;
+  document.getElementById('buscarCepBtn').addEventListener('click', async () => {
+    const cep = document.getElementById('cepInput').value.trim();
+    if(!cep){ alert("Digite um CEP válido."); return; }
+
+    try {
+      const resp = await fetch(`https://viacep.com.br/ws/${cep.replace(/\D/g,'')}/json/`);
+      const data = await resp.json();
+      if(data.erro){ alert("CEP não encontrado."); return; }
+
+      const endereco = `${data.logradouro}, ${data.bairro}, ${data.localidade}, ${data.uf}, Brasil`;
+      const locResp = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(endereco)}`);
+      const locData = await locResp.json();
+      if(!locData.length){ alert("Não foi possível localizar o endereço."); return; }
+
+      const lat = parseFloat(locData[0].lat);
+      const lon = parseFloat(locData[0].lon);
+
+      map.setView([lat, lon], 14);
+
+      if(window.userMarker) map.removeLayer(window.userMarker);
+      if(window.closestMarker) map.removeLayer(window.closestMarker);
+      if(window.circle) map.removeLayer(window.circle);
+      if(window.line) map.removeLayer(window.line);
+
+      window.userMarker = L.marker([lat, lon]).addTo(map).bindPopup("Localização do CEP").openPopup();
+
+      let menorDist = Infinity;
+      let pontoMaisProximo = null;
+
+      pontos.forEach(p => {
+        const dist = calcularDistancia(lat, lon, p.lat, p.lng);
+        if(dist < menorDist){ menorDist = dist; pontoMaisProximo = p; }
+      });
+
+      if(pontoMaisProximo){
+        window.closestMarker = L.marker([pontoMaisProximo.lat, pontoMaisProximo.lng])
+          .addTo(map)
+          .bindPopup(`<b>${pontoMaisProximo.nome}</b><br>Distância: ${menorDist.toFixed(2)} km`)
+          .openPopup();
+
+        window.circle = L.circle([pontoMaisProximo.lat, pontoMaisProximo.lng], {radius:200, color:'green'}).addTo(map);
+        window.line = L.polyline([[lat, lon],[pontoMaisProximo.lat, pontoMaisProximo.lng]], {color:'blue', weight:2, opacity:0.7}).addTo(map);
+      }
+
+    } catch(e){
+      alert("Erro ao buscar o CEP ou coordenadas.");
+      console.error(e);
     }
-
-   
-    fetch(`https://viacep.com.br/ws/${cep.replace(/\D/g, '')}/json/`)
-      .then(response => response.json())
-      .then(data => {
-        if (data.erro) {
-          alert("CEP não encontrado.");
-          return;
-        }
-
-        
-        var endereco = `${data.logradouro}, ${data.bairro}, ${data.localidade}, ${data.uf}, Brasil`;
-
-        fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(endereco)}`)
-          .then(resp => resp.json())
-          .then(locations => {
-            if (locations.length === 0) {
-              alert("Não foi possível localizar as coordenadas do endereço.");
-              return;
-            }
-
-            var lat = parseFloat(locations[0].lat);
-            var lon = parseFloat(locations[0].lon);
-
-            
-            map.setView([lat, lon], 14);
-
-            
-            if (window.userMarker) map.removeLayer(window.userMarker);
-            if (window.closestMarker) map.removeLayer(window.closestMarker);
-            if (window.circle) map.removeLayer(window.circle);
-            if (window.line) map.removeLayer(window.line);
-
-            
-            window.userMarker = L.marker([lat, lon]).addTo(map).bindPopup("Localização do CEP").openPopup();
-
-           
-            var menorDist = Infinity;
-            var pontoMaisProximo = null;
-
-            pontos.forEach(p => {
-              var dist = calcularDistancia(lat, lon, p.lat, p.lng);
-              if (dist < menorDist) {
-                menorDist = dist;
-                pontoMaisProximo = p;
-              }
-            });
-
-            if (pontoMaisProximo) {
-              window.closestMarker = L.marker([pontoMaisProximo.lat, pontoMaisProximo.lng])
-                .addTo(map)
-                .bindPopup(`<b>${pontoMaisProximo.nome}</b><br>Distância: ${menorDist.toFixed(2)} km`)
-                .openPopup();
-
-              window.circle = L.circle([pontoMaisProximo.lat, pontoMaisProximo.lng], {
-                radius: 200,
-                color: 'green'
-              }).addTo(map);
-
-              window.line = L.polyline([[lat, lon], [pontoMaisProximo.lat, pontoMaisProximo.lng]], {
-                color: 'blue',
-                weight: 2,
-                opacity: 0.7
-              }).addTo(map);
-            }
-          })
-          .catch(() => alert("Erro ao buscar coordenadas do endereço."));
-      })
-      .catch(() => alert("Erro ao buscar o CEP."));
   });
 </script>
 
