@@ -10,39 +10,42 @@
 
   <style>
     body {
-      background: linear-gradient(135deg, #2E7D32, #81C784); /* fundo verde */
+      background: linear-gradient(135deg, #2E7D32, #81C784);
       font-family: 'Verdana', sans-serif;
       color: #ffffff;
       margin: 0;
     }
 
-    .navbar {
+    header.navbar {
       background: rgba(0, 0, 0, 0.2);
       backdrop-filter: blur(10px);
+      padding: 1rem;
+      display: flex;
+      justify-content: flex-start;
     }
 
-    .navbar-brand, .nav-link, .navbar-text {
-      color: #fff !important;
-      font-weight: 600;
+    .btn-eco {
+      background-color: #81C784;
+      border: none;
+      color: #212529;
+      font-weight: bold;
+      padding: 0.5rem 1rem;
+      border-radius: 30px;
       transition: 0.3s;
+      cursor: pointer;
+      text-decoration: none;
     }
 
-    .nav-link:hover {
-      color: #C8E6C9 !important;
-    }
-
-    .navbar-brand img {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-right: 0.5rem;
+    .btn-eco:hover {
+      background-color: #A5D6A7;
+      color: #212529;
+      transform: translateY(-2px);
     }
 
     #contactForm {
       max-width: 600px;
       margin: 2rem auto;
-      background: #ffffff; /* área de mensagens branca */
+      background: #ffffff;
       color: #0b0b0b;
       padding: 2rem;
       border-radius: 15px;
@@ -73,24 +76,6 @@
       box-shadow: 0 0 8px rgba(130, 211, 148, 0.5);
     }
 
-    .btn-eco {
-      background-color: #81C784;
-      border: none;
-      color: #212529;
-      font-weight: bold;
-      padding: 0.5rem 1rem;
-      border-radius: 30px;
-      transition: 0.3s;
-      cursor: pointer;
-      text-decoration: none;
-    }
-
-    .btn-eco:hover {
-      background-color: #A5D6A7;
-      color: #212529;
-      transform: translateY(-2px);
-    }
-
     h1 {
       text-align: center;
       margin-bottom: 1.5rem;
@@ -114,15 +99,9 @@
 </head>
 <body>
 
-  <header class="navbar navbar-expand-lg">
-    <div class="container d-flex justify-content-between align-items-center">
-      <a class="navbar-brand d-flex align-items-center" href="../index.html">
-        <img src="../logo.site.jpeg" alt="Ewastetrack">
-        Ewastetrack
-      </a>
-      <!-- Botão de voltar ajustado -->
-      <a href="../index.html" class="btn btn-eco">Voltar</a>
-    </div>
+  <header class="navbar">
+    <!-- Botão de voltar ajustado -->
+    <a href="../index.html" class="btn btn-eco">Voltar</a>
   </header>
 
   <main>
