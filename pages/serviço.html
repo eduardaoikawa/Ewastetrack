@@ -41,7 +41,6 @@
       box-shadow: 0 6px 15px rgba(0,0,0,0.25);
     }
 
-    /* calculadora */
     .calculadora-card {
       background-color: #ffffff;
       color: #2E7D32;
@@ -124,14 +123,6 @@
       backdrop-filter: blur(5px);
     }
 
-    /* botão de voltar fixo */
-    .btn-voltar {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      z-index: 1000;
-    }
-
     @media (max-width: 600px) {
       .service-card {
         max-width: 90%;
@@ -153,10 +144,13 @@
 </head>
 <body>
 
-  <!-- Botão de voltar fixo -->
-  <a href="index.html" class="btn btn-eco btn-voltar">Voltar</a>
-
   <main class="container my-5">
+
+    <!-- Botão de voltar dentro do conteúdo, sem sobrepor a calculadora -->
+    <div class="mb-4">
+      <a href="index.html" class="btn btn-eco">Voltar</a>
+    </div>
+
     <h1>Serviços</h1>
 
     <div class="service-card">
@@ -240,3 +234,4 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
