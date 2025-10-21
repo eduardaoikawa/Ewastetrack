@@ -16,37 +16,31 @@
       margin: 0;
     }
 
-    header.navbar {
-      background: rgba(0, 0, 0, 0.2);
-      backdrop-filter: blur(10px);
-      padding: 1rem;
-      display: flex;
-      justify-content: flex-start;
-    }
-
     .btn-eco {
-      background-color: #81C784;
-      border: none;
-      color: #212529;
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #ffffff;
+      color: #2E7D32;
       font-weight: bold;
       padding: 0.5rem 1rem;
-      border-radius: 30px;
-      transition: 0.3s;
-      cursor: pointer;
+      border-radius: 25px;
       text-decoration: none;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+      z-index: 1000;
     }
-
     .btn-eco:hover {
-      background-color: #A5D6A7;
-      color: #212529;
-      transform: translateY(-2px);
+      background: #2E7D32;
+      color: #ffffff;
+      transform: scale(1.05);
     }
 
     #contactForm {
       max-width: 600px;
-      margin: 2rem auto;
+      margin: 6rem auto 2rem auto; /* espaço superior para o botão fixo */
       background: #ffffff;
-      color: #0b0b0b;
+      color: #212529;
       padding: 2rem;
       border-radius: 15px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.3);
@@ -76,9 +70,27 @@
       box-shadow: 0 0 8px rgba(130, 211, 148, 0.5);
     }
 
+    #contactForm button {
+      background-color: #81C784;
+      border: none;
+      color: #212529;
+      font-weight: bold;
+      padding: 0.5rem 1rem;
+      border-radius: 30px;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    #contactForm button:hover {
+      background-color: #A5D6A7;
+      color: #212529;
+      transform: translateY(-2px);
+    }
+
     h1 {
       text-align: center;
       margin-bottom: 1.5rem;
+      color: #212529;
     }
 
     footer {
@@ -99,10 +111,8 @@
 </head>
 <body>
 
-  <header class="navbar">
-    <!-- Botão de voltar ajustado -->
-    <a href="../index.html" class="btn btn-eco">Voltar</a>
-  </header>
+  <!-- Botão voltar no canto direito -->
+  <a href="../index.html" class="btn-eco">Voltar</a>
 
   <main>
     <form id="contactForm">
@@ -110,7 +120,7 @@
       <input id="contactName" type="text" placeholder="Nome" required>
       <input id="contactEmail" type="email" placeholder="Email" required>
       <textarea id="contactMsg" placeholder="Mensagem" rows="5" required></textarea>
-      <button type="submit" class="btn btn-eco">Enviar</button>
+      <button type="submit">Enviar</button>
     </form>
   </main>
 
