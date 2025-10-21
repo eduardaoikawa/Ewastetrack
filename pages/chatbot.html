@@ -45,7 +45,7 @@
 
     /* Chat */
     #chat {
-      background: #ffffff; /* verde claro original */
+      background: #ffffff; 
       color: #212529;
       width: 100%;
       max-width: 500px;
@@ -142,7 +142,8 @@
 </head>
 <body>
 
-  <a href="index.html" class="btn-eco">Voltar</a>
+  <!-- Botão voltar -->
+  <a href="../index.html" class="btn-eco">Voltar</a>
 
   <h1>Assistente de Reciclagem</h1>
   <p>Pergunte sobre pilhas, baterias, lixo eletrônico, sustentabilidade ou ODS.</p>
@@ -243,8 +244,8 @@
       setTimeout(()=>addMessage(resposta,"Bot",true),300);
     }
 
-    form.addEventListener("submit",e=>{ e.preventDefault(); sendMessage(); });
-    input.addEventListener("keydown",e=>{ if(e.key==="Enter"){ e.preventDefault(); sendMessage(); } });
+    form.addEventListener("submit", e=>{ e.preventDefault(); sendMessage(); });
+    input.addEventListener("keydown", e=>{ if(e.key==="Enter"){ e.preventDefault(); sendMessage(); } });
   </script>
 </body>
 </html>
