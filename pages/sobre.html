@@ -9,7 +9,7 @@
 
   <style>
     body {
-      background: linear-gradient(135deg, #2E7D32, #81C784); /* verde principal */
+      background: linear-gradient(135deg, #2E7D32, #81C784);
       font-family: 'Verdana', sans-serif;
       color: #212529;
       margin: 0;
@@ -36,6 +36,10 @@
       border-radius: 25px;
       transition: 0.3s;
       cursor: pointer;
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
     }
 
     .btn-eco:hover {
@@ -45,13 +49,13 @@
     }
 
     main.container {
-      background: #ffffff; /* conteúdo branco */
+      background: #ffffff;
       color: #212529;
       border-radius: 20px;
       padding: 2rem;
       box-shadow: 0 6px 20px rgba(0,0,0,0.3);
       max-width: 900px;
-      margin-top: 2rem;
+      margin: 80px auto 2rem auto; /* espaço para botão fixo */
     }
 
     h1, h2 {
@@ -79,7 +83,7 @@
 
     .pessoa img {
       width: 100%;
-      border-radius: 50%; /* imagens redondas */
+      border-radius: 50%;
       margin-bottom: 10px;
       object-fit: cover;
     }
@@ -113,18 +117,8 @@
 </head>
 <body>
 
-  <!-- Cabeçalho -->
-  <header class="navbar navbar-expand-lg">
-    <div class="container">
-      <a class="navbar-brand d-flex align-items-center" href="index.html">
-        <img src="logo.site.jpeg" alt="Ewastetrack" width="40" class="me-2">
-        Ewastetrack
-      </a>
-      <div class="ms-auto">
-        <a href="index.html" class="btn btn-eco">Voltar</a>
-      </div>
-    </div>
-  </header>
+  <!-- Botão de voltar fixo -->
+  <a href="../index.html" class="btn btn-eco">Voltar</a>
 
   <!-- Conteúdo principal -->
   <main class="container">
@@ -168,3 +162,4 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
