@@ -6,7 +6,7 @@
 }
 
 body {
-  background: linear-gradient(135deg, #5A189A, #7B2CBF, #9D4EDD);
+  background: linear-gradient(135deg, #2E7D32, #2E7D32, #2E7D32);
   font-family: 'Verdana', sans-serif;
   color: #f8f9fa;
   margin: 0;
@@ -28,7 +28,7 @@ body {
 }
 
 .hero {
-  background: linear-gradient(rgba(90,24,154,0.85), rgba(157,78,221,0.85)),
+  background: linear-gradient(rgba(83, 233, 140, 0.85), rgba(83, 233, 140, 0.85)),
               url('assets/eco-bg.jpg') no-repeat center/cover;
   color: #fff;
   padding: 5rem 1rem;
@@ -56,7 +56,7 @@ body {
 }
 
 .btn-eco:hover {
-  background: linear-gradient(135deg, #9D4EDD, #5A189A);
+  background: linear-gradient(135deg, #2E7D32, #2E7D32);
   color: #fff;
   transform: translateY(-3px) scale(1.05);
 }
