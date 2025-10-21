@@ -24,9 +24,9 @@
     }
 
     .btn-eco {
-      background-color: #2E7D32;
-      border: 2px solid #2E7D32;
-      color: #ffffff;
+      background-color: #81C784;
+      border: none;
+      color: #212529;
       font-weight: bold;
       padding: 0.5rem 1rem;
       border-radius: 25px;
@@ -35,19 +35,23 @@
     }
 
     .btn-eco:hover {
-      background-color: #1B5E20;
-      border-color: #1B5E20;
+      background-color: #A5D6A7;
+      transform: scale(1.05);
     }
 
     main.container {
       max-width: 900px;
       margin: 2rem auto;
       padding: 2rem;
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
     }
 
     h1 {
       text-align: center;
       color: #2E7D32;
+      font-weight: bold;
       margin-bottom: 2rem;
     }
 
@@ -100,11 +104,6 @@
     .btn-zerar {
       background-color: #f44336;
       color: #fff;
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 25px;
-      font-weight: bold;
-      cursor: pointer;
     }
 
     .btn-zerar:hover {
@@ -137,8 +136,8 @@
     }
 
     @media (max-width: 600px) {
-      .service-card { max-width: 100%; }
-      .calculadora-card { width: 100%; }
+      .service-card { width: 100%; }
+      .botoes { flex-direction: column; gap: 10px; }
     }
   </style>
 </head>
