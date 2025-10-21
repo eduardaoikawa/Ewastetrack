@@ -11,18 +11,22 @@
     body {
       background: linear-gradient(135deg, #2E7D32, #81C784);
       font-family: 'Verdana', sans-serif;
-      color: #212529;
       margin: 0;
       padding-bottom: 80px;
+      color: #212529;
     }
 
-    header.navbar {
+    /* Cabeçalho com botão de voltar */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
       background: rgba(46,125,50,0.85);
-      backdrop-filter: blur(10px);
-      border-bottom: 2px solid #1B5E20;
       padding: 0.5rem 1rem;
       display: flex;
-      justify-content: flex-end;
+      justify-content: flex-start;
+      z-index: 1000;
     }
 
     .btn-eco {
@@ -32,24 +36,24 @@
       font-weight: bold;
       padding: 0.5rem 1rem;
       border-radius: 25px;
-      transition: 0.3s;
       cursor: pointer;
+      transition: 0.3s;
     }
 
     .btn-eco:hover {
       background-color: #1B5E20;
       border-color: #1B5E20;
-      color: #ffffff;
     }
 
     main.container {
-      background: #ffffff;
-      color: #212529;
-      border-radius: 20px;
-      padding: 2rem;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      margin-top: 80px;
       max-width: 900px;
-      margin: 2rem auto;
+      margin-left: auto;
+      margin-right: auto;
+      background: #ffffff;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
     }
 
     h1, h2 {
@@ -60,31 +64,25 @@
     .galeria {
       display: flex;
       justify-content: center;
-      gap: 30px;
+      gap: 20px;
       flex-wrap: wrap;
       margin-top: 2rem;
     }
 
     .pessoa {
-      background-color: #ffffff;
-      border: 2px solid #2E7D32;
-      padding: 15px;
-      border-radius: 12px;
-      width: 200px;
+      width: 150px;
       text-align: center;
-      color: #212529;
     }
 
     .pessoa img {
       width: 100%;
-      aspect-ratio: 1 / 1; /* fotos quadradas */
+      aspect-ratio: 1 / 1; /* quadrada */
       object-fit: cover;
       border-radius: 12px;
       margin-bottom: 10px;
     }
 
     .nome {
-      font-size: 18px;
       font-weight: bold;
       margin-bottom: 5px;
     }
@@ -101,63 +99,55 @@
       left: 0;
       width: 100%;
       background: #2E7D32;
-      color: #ffffff;
+      color: #fff;
       text-align: center;
       padding: 8px 0;
       font-size: 1rem;
-      box-shadow: 0 -1px 5px rgba(0,0,0,0.3);
       z-index: 1000;
     }
   </style>
 </head>
 <body>
 
-  <!-- Cabeçalho com botão de voltar -->
-  <header class="navbar">
+  <header>
     <a href="index.html" class="btn btn-eco">Voltar</a>
   </header>
 
-  <!-- Conteúdo principal -->
   <main class="container">
-    <h1 class="mb-4">Sobre o Ewastetrack</h1>
-    <p>O Ewastetrack ajuda pessoas a localizar pontos de descarte de baterias corretamente perto de casa. Projeto para o Hackteen — Startup Explorer.</p>
+    <h1>Sobre o Ewastetrack</h1>
+    <p>O Ewastetrack ajuda pessoas a localizar pontos de descarte de baterias corretamente perto de casa.</p>
 
     <h2 class="mt-4">Missão</h2>
-    <p>A missão do nosso aplicativo é facilitar o descarte correto de pilhas e baterias, conectando os cidadãos aos pontos de coleta mais próximos de suas residências. No Brasil, são vendidas cerca de 1,4 bilhão de pilhas por ano, mas apenas 1% delas é coletado e reciclado de forma adequada, o que significa que a maioria ainda é descartada incorretamente no lixo comum. Essa prática representa um risco ambiental e de saúde, já que substâncias tóxicas presentes nesses materiais contaminam o solo e a água.</p>
+    <p>Facilitar o descarte correto de pilhas e baterias, conectando os cidadãos aos pontos de coleta mais próximos.</p>
 
-    <h2 class="mt-5">Sobre nós</h2>
-    <p>Somos três fundadoras comprometidas com o meio ambiente e o descarte consciente de resíduos eletrônicos.</p>
-
+    <h2 class="mt-4">Nossa equipe</h2>
     <div class="galeria">
       <div class="pessoa">
         <img src="fotodaOikawa.jpg" alt="Maria Eduarda Oikawa">
         <div class="nome">Maria Eduarda Oikawa</div>
-        <div class="funcao">Desenvolvedora Web e fundadora</div>
+        <div class="funcao">Desenvolvedora Web</div>
       </div>
 
       <div class="pessoa">
         <img src="minhafoto.enc" alt="Heloisa Dias">
         <div class="nome">Heloisa Dias</div>
-        <div class="funcao">Desenvolvedora Web e fundadora</div>
+        <div class="funcao">Desenvolvedora Web</div>
       </div>
 
       <div class="pessoa">
         <img src="fotodaSakai.jpg" alt="Maria Eduarda Sakai">
         <div class="nome">Maria Eduarda Sakai</div>
-        <div class="funcao">Desenvolvedora Web e fundadora</div>
+        <div class="funcao">Desenvolvedora Web</div>
       </div>
     </div>
-
-    <p style="margin-top: 30px;">Nosso objetivo é facilitar o descarte consciente e cuidar do meio ambiente juntos.</p>
   </main>
 
-  <!-- Rodapé -->
   <footer>
     <small>© Ewastetrack</small>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
 
 
