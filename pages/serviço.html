@@ -41,22 +41,24 @@
     }
 
     .btn-eco {
-      background-color: #81C784;
-      border: none;
-      color: #212529;
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #ffffff;
+      color: #2E7D32;
       font-weight: bold;
       padding: 0.5rem 1rem;
       border-radius: 25px;
-      transition: 0.3s;
-      cursor: pointer;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-      font-size: 0.9rem;
+      text-decoration: none;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+      z-index: 1000;
     }
 
     .btn-eco:hover {
-      background-color: #A5D6A7;
-      transform: translateY(-2px) scale(1.05);
-      color: #212529;
+      background: #2E7D32;
+      color: #ffffff;
+      transform: scale(1.05);
     }
 
     .calculadora-card {
@@ -104,7 +106,6 @@
       font-size: 1.1em;
       color: #1b5e20;
       text-align: left;
-      display: none;
     }
 
     footer {
@@ -125,8 +126,8 @@
 </head>
 <body>
 
-  <!-- Botão de voltar fixo no topo -->
-  <a href="../index.html" class="btn-eco" style="position: fixed; top: 20px; left: 20px; z-index:1000;">Voltar</a>
+  <!-- Botão voltar fixo no canto direito -->
+  <a href="../index.html" class="btn-eco">Voltar</a>
 
   <main class="container my-5">
     <h1>Serviços</h1>
@@ -161,11 +162,11 @@
       <input type="number" id="baterias" min="0" value="0">
 
       <div class="botoes">
-        <button type="button" class="btn-eco w-50" onclick="calcularEconomia()">Calcular</button>
+        <button type="button" class="btn btn-eco w-50" onclick="calcularEconomia()">Calcular</button>
         <button type="button" class="btn-zerar w-50" onclick="zerarCampos()">Zerar</button>
       </div>
 
-      <div id="resultado" class="resultado"></div>
+      <div id="resultado" class="resultado" style="display:none;"></div>
     </section>
   </main>
 
